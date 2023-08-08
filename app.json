@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "TicketManager",
-    "slug": "TicketManager",
+    "slug": "ticket-manager",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6c90541f-2ebd-4b95-bd15-9082941eb59b"
+      }
+    },
+    "owner": "jamthebest"
   }
 }
