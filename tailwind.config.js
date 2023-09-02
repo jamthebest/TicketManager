@@ -1,8 +1,17 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
-    content: ['./src/**/*.{js,jsx}'],
+    darkMode: 'class',
+    content: ['./App.{js,jsx,ts,tsx}', './src/**/*.{js,jsx,ts,tsx}'],
     theme: {
         extend: {},
     },
-    plugins: [],
+    plugins: [
+        plugin(({ addBase, theme }) => {
+            addBase({
+                html: { color: theme('colors.zinc.50') },
+            });
+        }),
+    ],
 };

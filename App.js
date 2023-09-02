@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+import {
+    Button,
+    SafeAreaView,
+    StatusBar,
+    Text,
+    View,
+} from 'react-native';
 
 export default function App() {
+    const onPressBuy = () => {};
     return (
-        <View className="flex-1 items-center justify-center bg-dark">
-            <Text>Open up App.js to start working on your app!!</Text>
-            <StatusBar style="auto" />
-        </View>
+        <SafeAreaView className="bg-gray-800">
+            <StatusBar
+                animated={true}
+                backgroundColor="#61dafb"
+                barStyle={'default'}
+                showHideTransition={'fade'}
+            />
+            <View className="flex items-center justify-center w-full h-full p-4">
+                <Text className="text-zinc-50 mb-3">App de prueba para comprar tickets!!</Text>
+                <Button
+                    onPress={onPressBuy}
+                    title="Comprar ticket"
+                    color="#841584"
+                    accessibilityLabel="Comprar ticket"
+                />
+            </View>
+        </SafeAreaView>
     );
 }
