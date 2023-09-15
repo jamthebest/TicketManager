@@ -1,13 +1,21 @@
-import { Button, SafeAreaView, StatusBar, Text, View } from 'react-native';
+import {
+    Button,
+    Image,
+    SafeAreaView,
+    StatusBar,
+    Text,
+    View,
+} from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import useQrCode from './hooks/useQrCode';
 
+const imgPlaceholder = require('../assets/img-placeholder.jpg');
+
 export default function Main() {
-    const { mutate: getQrCode, isLoading } = useQrCode();
+    const { mutate: getQrCode, data } = useQrCode();
     const onPressBuy = () => {
         getQrCode({});
     };
-    console.log('isLoading', isLoading);
     return (
         <SafeAreaView style={[tw`bg-gray-800`]}>
             <StatusBar
@@ -19,6 +27,11 @@ export default function Main() {
             <View
                 style={tw`flex items-center justify-center w-full h-full p-4`}
             >
+                <Image
+                    style={tw`flex w-80 h-80`}
+                    defaultSource={imgPlaceholder}
+                    source={data?.img ? { uri: data.img } : imgPlaceholder}
+                />
                 <Text style={tw`text-white mb-3`}>
                     App de prueba para comprar tickets!!
                 </Text>

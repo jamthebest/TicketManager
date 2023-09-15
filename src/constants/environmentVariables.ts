@@ -17,7 +17,7 @@ const EnvironmentVariables = {
         forcedLocalhost ||
         forcedLocalNetwork ||
         Config.API_URL ||
-        'https://dev-app.materially.com',
+        'https://ticketmanager2-8ibpcg4j.ue.gateway.dev',
     WS_URL: Config.WS_URL,
     SUPPORT_EMAIL: Config.SUPPORT_EMAIL,
     GOOGLE_API_KEY: Config.GOOGLE_API_KEY,
