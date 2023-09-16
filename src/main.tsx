@@ -12,10 +12,11 @@ import useQrCode from './hooks/useQrCode';
 const imgPlaceholder = require('../assets/img-placeholder.jpg');
 
 export default function Main() {
-    const { mutate: getQrCode, data } = useQrCode();
+    const { mutate: getQrCode, isLoading, data } = useQrCode();
     const onPressBuy = () => {
         getQrCode({});
     };
+    const image = data?.img ? { uri: data.img } : imgPlaceholder;
     return (
         <SafeAreaView style={[tw`bg-gray-800`]}>
             <StatusBar
@@ -30,7 +31,7 @@ export default function Main() {
                 <Image
                     style={tw`flex w-80 h-80`}
                     defaultSource={imgPlaceholder}
-                    source={data?.img ? { uri: data.img } : imgPlaceholder}
+                    source={!isLoading ? image : imgPlaceholder}
                 />
                 <Text style={tw`text-white mb-3`}>
                     App de prueba para comprar tickets!!
